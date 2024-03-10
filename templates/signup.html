@@ -1,0 +1,84 @@
+{% extends 'Navbar/projectnavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+
+</head>
+<body>
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+{% if messages.tags %}
+<script>alert ("{{ message }}")</script>
+{% endif %}
+{% endfor %}
+{% endif %}
+<div class="container1">
+    <div class="bodycontainer">
+        <h1>Register Page</h1>
+        <br>
+        <form method="post" action="{% url 'signup1' %}">
+            {% csrf_token%}
+            <label> Username </label>
+            <input type="text"  name="username" placeholder="enter id / Employer ID"><br><br>
+            <label> Password </label>
+            <input type="password" name="password"><br><br>
+            <label> Confirm Password </label>
+            <input type="password" name="password1"><br><br>
+            <button type="submit" name="SUBMIT">Submit</button>
+        </form>
+    </div>
+</div>
+
+<style>
+        body {
+            background-image: url("{% static 'images/bus11.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        .container1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .bodycontainer {
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+</body>
+</html>

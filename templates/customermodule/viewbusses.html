@@ -1,0 +1,38 @@
+{% extends 'navbar/customerNavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <h2> Bus Details List </h2>
+
+    <div class="rows">
+        {% for bus_details in bus_details_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ bus_details.bus_name }}</h5>
+                    <p class="card-text"><strong>Ticket cost: </strong>{{ bus_details.ticket_cost }}</p><br>
+                    <p class="card-text"><strong>Bus Type: </strong> {{ bus_details.bus_type }}</p><br>
+                    <p class="card-text"><strong>No of seats: </strong>{{ bus_details.noofseats }}</p><br>
+                    <p class="card-text"><strong>Pick-up: </strong> {{ bus_details.pickup }}</p><br>
+                    <p class="card-text"><strong>Destination: </strong> {{ bus_details.destination }}</p><br>
+                    <p class="card-text"><weak>Provisions: </weak> {{ bus_details.provisions }}</p><br>
+
+                    <a href="#" class="btn btn-success">Book Bus</a>
+
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

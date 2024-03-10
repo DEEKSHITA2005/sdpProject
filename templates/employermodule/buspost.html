@@ -1,0 +1,62 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post a Bus Job</title> </head>
+<body>
+
+{% block body %}
+  <h1>Post Bus Details</h1> <div class="container mt-5">
+    <form method="post" action="{% url 'employermodule:add_bus_details' %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="bus_name">Bus Name</label> <input type="text" class="form-control" name="bus_name" id="bus_name" placeholder="Enter Bus  name">
+      </div>
+
+      <div class="form-group">
+        <label for="ticket_cost">Ticket Cost (per-ahead.)</label> <input type="text" class="form-control" name="ticket_cost" id="ticket_cost" placeholder="Enter ticket cost">
+      </div>
+
+      <div class="form-group">
+        <label for="bus_type">Bus Type</label>
+        <select class="form-control" name="bus_type" id="bus_type">
+          <option value="sleeper">Sleeper</option>
+          <option value="semisleeper">Semi-Sleeper</option>
+          <option value="sitting">Sitting</option>
+        </select>
+      </div>
+        <div class="form-group">
+        <label for="noofseats">No of Seats</label> <input type="text" class="form-control" name="noofseats" id="noofseats" placeholder="Enter Seats">
+      </div>
+
+      <div class="form-group">
+        <label for="pickup">Pick-Up</label>
+        <input type="text" class="form-control" name="pickup" id="pickup" placeholder="Enter Pick-Up Place (city, state, etc.)">
+      </div>
+
+      <div class="form-group">
+        <label for="destination"> Destination (city, state, etc.)</label> <input type="text" class="form-control" name="destination" id="destination" placeholder="Enter drop-location)">
+      </div>
+       <div class="form-group">
+        <label for="provisions"> Enter provisions (city, state, etc.)</label> <input type="text" class="form-control" name="provisions" id="provisions" placeholder="Enter provisions)">
+      </div>
+
+
+      <button type="submit" class="btn btn-success">Post the Bus Job</button>
+    </form>
+  </div>
+
+<style>
+  .form-group {
+    margin-bottom: 1.2rem; /* Adjust the value for desired spacing */
+  }
+</style>
+
+
+{% endblock %}
+
+</body>
+</html>

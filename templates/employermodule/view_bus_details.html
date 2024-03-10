@@ -1,0 +1,36 @@
+{% extends 'Navbar/employernavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="rows">
+        {% for bus_details in bus_details_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ bus_details.bus_name }}</h5>
+                    <p class="card-text">Ticket cost: {{ bus_details.ticket_cost }}</p>
+                    <p class="card-text">Bus Type: {{ bus_details.bus_type }}</p>
+                    <p class="card-text">No of seats: {{ bus_details.noofseats }}</p>
+                    <p class="card-text">Pick-up: {{ bus_details.pickup }}</p>
+                    <p class="card-text">Destination: {{ bus_details.destination }}</p>
+                    <p class="card-text">Provisions: {{ bus_details.provisions }}</p>
+
+                    <a href="{% url 'employermodule:edit_bus_details' bus_details.id %}" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>
